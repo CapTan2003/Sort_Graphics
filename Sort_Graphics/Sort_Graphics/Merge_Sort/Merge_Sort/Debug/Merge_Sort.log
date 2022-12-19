@@ -1,0 +1,4 @@
+﻿  Merge_Sort.cpp
+C:\Users\Dell\Desktop\Major_2_1\CTDL_GT\Graphics_CPP\Pr1\Merge_Sort\Merge_Sort\Merge_Sort.cpp(73,9): warning C4101: 'x': unreferenced local variable
+C:\Users\Dell\Desktop\Major_2_1\CTDL_GT\Graphics_CPP\Pr1\Merge_Sort\Merge_Sort\Merge_Sort.cpp(308,9): warning C4101: 'x': unreferenced local variable
+  Merge_Sort.vcxproj -> C:\Users\Dell\Desktop\Major_2_1\CTDL_GT\Graphics_CPP\Pr1\Merge_Sort\Debug\Merge_Sort.exe
