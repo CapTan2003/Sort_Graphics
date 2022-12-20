@@ -20,7 +20,6 @@ struct Position {
 
 int n;
 Record rc[Length];
-Record tmp[Length];
 DWORD WIDTHSCREEN = GetSystemMetrics(SM_CXSCREEN);
 DWORD HEIGHTSCREEN = GetSystemMetrics(SM_CYSCREEN);
 char arrname[10] = "Array:";
@@ -30,49 +29,43 @@ Record temp[Length];
 void enterRecordKey(Record rc[], int n);
 
 void createDivRecordKey(Record rc[], int x, int y, int width, char content[]);
-
 void createArrayDeleteAt(Record rc[], int x, int y, int width, int index, char content[]);
-
 void createArrayDeleteAt2Pos(Record rc[], int x, int y, int width, int index1, int index2, char content[]);
-
-void deleteDivAtPos(int arr[], int count);
-
+void deleteDivAtPos(Record rc[],int arr[], int count);
+void confirmTempRecord(Record x[], Record rc[]);
 void createDiv(int x, int y, int width, int key);
-
-void saveDivCreated( int width,int start, int end);
-
 void resetScreen(Record rc[]);
-
 void text_align_center(int x, int y, int width, char txt[]);
-
 void createRedDiv(int x, int y, int width, int key);
-
 void setPinkDiv(int x, int y, int width, int key);
-
 void setWhiteDiv(int x, int y, int width, int key);
-
 void setLightGreenDiv(int x, int y, int width, int key);
 
 void runDiv( int sx, int sy, int width, int ix, int iy, int key);
-
-void goDown( int index, int width, int key, int despos,int count,int save[]);
-
+void goDown(Record rc[], int index, int width, int key, int despos,int count,int save[],int p, int num);
+void goUp(int index, int width, int count, int save[]);
 void merge(Record arr[], int p, int q, int r);
-
 void mergeSort(Record arr[], int l, int r);
 
 int main() {
 
-    cout << "Nhap vao so luong phan tu: "; cin >> n;
+   /* cout << "Nhap vao so luong phan tu: "; cin >> n;
     cout << "Nhap vao cac Key cho Record: ";
-    enterRecordKey(rc, n);
+    enterRecordKey(rc, n);*/
+    n = 9;
+    rc[0].Key = 8; rc[1].Key = 6; rc[2].Key = 9; rc[3].Key = 35;
+    rc[4].Key = 1; rc[5].Key = 2; rc[6].Key = 5; rc[7].Key = 4;
+    rc[8].Key = 6;
     initwindow(WIDTHSCREEN, HEIGHTSCREEN);
     outtextxy(10, 10, algorithmname);
     createDivRecordKey(rc, mypos.posx, mypos.posy, mypos.width, arrname);
+    confirmTempRecord(temp, rc);
     mergeSort(rc, 0, n - 1);
-    int x[Length];
-    /*x[0] = 3; x[1] = 1; x[2] = 6;
-    deleteDivAtPos(x, 3);*/
+    Sleep(200);
+    cleardevice();
+    resetScreen(rc);
+    outtextxy(300, 300, (char*)"Hoan Thanh");
+    swapbuffers();
     getch();
     closegraph();
     return 0;
@@ -187,12 +180,6 @@ void createDiv(int x, int y, int width, int key) {
     
 }
 
-void saveDivCreated(int width,int start, int end) {
-    for (int i = start;i <= end ;i++) {
-        createDiv(mypos.posx + (mypos.width + 5) * i,mypos.poscy,mypos.width,rc[i].Key);
-    }
-}
-
 void setPinkDiv(int x, int y, int width, int key) {
     char txt[10];
     sprintf_s(txt, "%d", key);
@@ -229,7 +216,13 @@ void runDiv( int sx, int sy, int width, int ix, int iy, int key) {
     createRedDiv(sx + ix, sy + iy, width, key);
 }
 
-void goDown( int index, int width, int key,int despos,int count , int save[]) {
+void createDivSave(int stx, int arr[], int count) {
+    for (int i = 0;i < count;i++) {
+        createDiv(mypos.posx + (mypos.width + 5) * (stx + i), mypos.poscy, mypos.width, rc[stx + i].Key);
+    }
+}
+
+void goDown( Record x[],int index, int width, int key,int despos,int count , int save[], int p,int num) {
     int ixdown = 0;
     int iydown = 0;
     while (true) {
@@ -238,7 +231,8 @@ void goDown( int index, int width, int key,int despos,int count , int save[]) {
         }
         cleardevice();
         setcolor(WHITE);
-        deleteDivAtPos(rc,save, count);
+        createDivSave(p, save, num - 1);
+        deleteDivAtPos(x,save, count);
         if (iydown != mypos.poscy - mypos.posy + 1) {
             iydown++;
         }
@@ -252,6 +246,7 @@ void goDown( int index, int width, int key,int despos,int count , int save[]) {
             ixdown = 1;
         }
         runDiv(mypos.posx+(mypos.width+5)*index, mypos.posy, mypos.width, ixdown, iydown, key);
+        
         swapbuffers();
         delay(5);
     }
@@ -263,7 +258,7 @@ void goUp(int index, int width, int count, int save[]) {
     while (abs(iyup)!=abs(mypos.poscy-mypos.posy)+1) {
         cleardevice();
         setcolor(WHITE);
-        deleteDivAtPos(temp,save, count);
+        deleteDivAtPos(rc,save, count);
         while (i != count) {
             runDiv(mypos.posx + (mypos.width+5)*(index+i)  , mypos.poscy, mypos.width, ixup, iyup, rc[index + i].Key);
             i++;
@@ -293,15 +288,13 @@ void merge(Record rc[], int p, int q, int r) {
     int save[Length];
     Record* L = new Record[n1];
     Record* M = new Record[n2];
-    confirmTempRecord(temp, rc);
     for (int i = 0; i < n1; i++)
         L[i] = rc[p + i];
     for (int j = 0; j < n2; j++)
         M[j] = rc[q + 1 + j];
-
-  
     int i, j, k,index;
     index = 0;
+    int count = 0;
     i = 0;
     j = 0;
     k = p;
@@ -312,50 +305,57 @@ void merge(Record rc[], int p, int q, int r) {
             Sleep(600);
             pos = p + i;
             save[index] = pos;
-            goDown(pos, mypos.width, L[i].Key, k, k+1,save);
+            goDown(temp, pos, mypos.width, L[i].Key, k, k + 1, save, p,count+1);
             rc[k] = L[i];
-           
-            //swapbuffers();
             i++;
         }
         else {
             Sleep(600);
             pos = q + 1 + j;
             save[index] = pos;
-            goDown(pos, mypos.width, M[j].Key, k, k+1,save);
+            goDown(temp, pos, mypos.width, M[j].Key, k, k + 1, save, p,count+1);
             rc[k] = M[j];
-          
-            //swapbuffers();
             j++; 
         }
-        saveDivCreated(mypos.width, pos, pos + k);
         index++;
         k++; 
+        count++;
     }
-    goUp(p, mypos.width, k,save);
     while (i < n1) {
+        pos = p + i;
+        save[index] = pos;
+        goDown(temp,pos, mypos.width, temp[pos].Key, k, k + 1, save,p,count+1);
         rc[k] = L[i];
         i++;
         k++;
+        index++;
+        count++;
     }
 
     while (j < n2) {
+        pos = q + 1 + j;
+        save[index] = pos;
+        goDown(temp,pos, mypos.width, temp[pos].Key, k, k + 1, save,p,count+1);
         rc[k] = M[j];
         j++;
         k++;
+        index++;
+        count++;
     }
+    Sleep(400);
+    goUp(p, mypos.width, count, save);
     delete[] L;
     delete[] M;
 }
-
-
+                               
 void mergeSort(Record rc[], int l, int r) {
     if (l < r) {
         int m = l + (r - l) / 2;   
         mergeSort(rc, l, m);
-       
         mergeSort(rc, m + 1, r);
-           
         merge(rc, l, m, r);
+        confirmTempRecord(temp, rc);
     }
 }
+// 1 6 4 7 6 3 8 7 2 7 
+// 1 7 0 4 3 7 4  5 3 1

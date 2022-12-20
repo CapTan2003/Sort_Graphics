@@ -1,4 +1,10 @@
 ﻿  Merge_Sort.cpp
-C:\Users\Dell\Desktop\Major_2_1\CTDL_GT\Graphics_CPP\Pr1\Merge_Sort\Merge_Sort\Merge_Sort.cpp(73,9): warning C4101: 'x': unreferenced local variable
-C:\Users\Dell\Desktop\Major_2_1\CTDL_GT\Graphics_CPP\Pr1\Merge_Sort\Merge_Sort\Merge_Sort.cpp(308,9): warning C4101: 'x': unreferenced local variable
-  Merge_Sort.vcxproj -> C:\Users\Dell\Desktop\Major_2_1\CTDL_GT\Graphics_CPP\Pr1\Merge_Sort\Debug\Merge_Sort.exe
+C:\Users\Admin\Desktop\Sort_Graphics\Sort_Graphics\Sort_Graphics\Merge_Sort\Merge_Sort\Merge_Sort.cpp(301,9): warning C4101: 'x': unreferenced local variable
+graphics.lib(dibutil.obj) : warning LNK4099: PDB 'bgi.pdb' was not found with 'graphics.lib(dibutil.obj)' or at 'C:\Users\Admin\Desktop\Sort_Graphics\Sort_Graphics\Sort_Graphics\Merge_Sort\Debug\bgi.pdb'; linking object as if no debug info
+graphics.lib(drawing.obj) : warning LNK4099: PDB 'bgi.pdb' was not found with 'graphics.lib(drawing.obj)' or at 'C:\Users\Admin\Desktop\Sort_Graphics\Sort_Graphics\Sort_Graphics\Merge_Sort\Debug\bgi.pdb'; linking object as if no debug info
+graphics.lib(file.obj) : warning LNK4099: PDB 'bgi.pdb' was not found with 'graphics.lib(file.obj)' or at 'C:\Users\Admin\Desktop\Sort_Graphics\Sort_Graphics\Sort_Graphics\Merge_Sort\Debug\bgi.pdb'; linking object as if no debug info
+graphics.lib(misc.obj) : warning LNK4099: PDB 'bgi.pdb' was not found with 'graphics.lib(misc.obj)' or at 'C:\Users\Admin\Desktop\Sort_Graphics\Sort_Graphics\Sort_Graphics\Merge_Sort\Debug\bgi.pdb'; linking object as if no debug info
+graphics.lib(text.obj) : warning LNK4099: PDB 'bgi.pdb' was not found with 'graphics.lib(text.obj)' or at 'C:\Users\Admin\Desktop\Sort_Graphics\Sort_Graphics\Sort_Graphics\Merge_Sort\Debug\bgi.pdb'; linking object as if no debug info
+graphics.lib(winbgi.obj) : warning LNK4099: PDB 'bgi.pdb' was not found with 'graphics.lib(winbgi.obj)' or at 'C:\Users\Admin\Desktop\Sort_Graphics\Sort_Graphics\Sort_Graphics\Merge_Sort\Debug\bgi.pdb'; linking object as if no debug info
+graphics.lib(winthread.obj) : warning LNK4099: PDB 'bgi.pdb' was not found with 'graphics.lib(winthread.obj)' or at 'C:\Users\Admin\Desktop\Sort_Graphics\Sort_Graphics\Sort_Graphics\Merge_Sort\Debug\bgi.pdb'; linking object as if no debug info
+  Merge_Sort.vcxproj -> C:\Users\Admin\Desktop\Sort_Graphics\Sort_Graphics\Sort_Graphics\Merge_Sort\Debug\Merge_Sort.exe
