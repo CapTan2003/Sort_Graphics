@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "6_Straight_Insertion_Sort", "6_Straight_Insertion_Sort\6_Straight_Insertion_Sort.vcxproj", "{B31D4556-8E92-4F47-A7CD-7A555C7E1B60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B31D4556-8E92-4F47-A7CD-7A555C7E1B60}.Debug|x64.ActiveCfg = Debug|x64
+		{B31D4556-8E92-4F47-A7CD-7A555C7E1B60}.Debug|x64.Build.0 = Debug|x64
+		{B31D4556-8E92-4F47-A7CD-7A555C7E1B60}.Debug|x86.ActiveCfg = Debug|Win32
+		{B31D4556-8E92-4F47-A7CD-7A555C7E1B60}.Debug|x86.Build.0 = Debug|Win32
+		{B31D4556-8E92-4F47-A7CD-7A555C7E1B60}.Release|x64.ActiveCfg = Release|x64
+		{B31D4556-8E92-4F47-A7CD-7A555C7E1B60}.Release|x64.Build.0 = Release|x64
+		{B31D4556-8E92-4F47-A7CD-7A555C7E1B60}.Release|x86.ActiveCfg = Release|Win32
+		{B31D4556-8E92-4F47-A7CD-7A555C7E1B60}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F7A8911-1E6E-4AAA-8F24-F57283CD8D06}
+	EndGlobalSection
+EndGlobal

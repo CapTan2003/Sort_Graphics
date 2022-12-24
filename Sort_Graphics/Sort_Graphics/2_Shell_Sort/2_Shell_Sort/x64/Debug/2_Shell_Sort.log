@@ -1,0 +1,13 @@
+﻿  2_Shell_Sort.cpp
+2_Shell_Sort.obj : error LNK2019: unresolved external symbol cleardevice referenced in function "void __cdecl animateSwap2Div(struct Record * const,int,int,int,int)" (?animateSwap2Div@@YAXQEAURecord@@HHHH@Z)
+2_Shell_Sort.obj : error LNK2019: unresolved external symbol rectangle referenced in function "void __cdecl createArrayDeleteAt2Pos(struct Record * const,int,int,int,int,int,char * const,int)" (?createArrayDeleteAt2Pos@@YAXQEAURecord@@HHHHHQEADH@Z)
+2_Shell_Sort.obj : error LNK2019: unresolved external symbol delay referenced in function "void __cdecl animateSwap2Div(struct Record * const,int,int,int,int)" (?animateSwap2Div@@YAXQEAURecord@@HHHH@Z)
+2_Shell_Sort.obj : error LNK2019: unresolved external symbol setcolor referenced in function "void __cdecl animateSwap2Div(struct Record * const,int,int,int,int)" (?animateSwap2Div@@YAXQEAURecord@@HHHH@Z)
+2_Shell_Sort.obj : error LNK2019: unresolved external symbol closegraph referenced in function main
+2_Shell_Sort.obj : error LNK2019: unresolved external symbol initwindow referenced in function main
+2_Shell_Sort.obj : error LNK2019: unresolved external symbol swapbuffers referenced in function "void __cdecl animateSwap2Div(struct Record * const,int,int,int,int)" (?animateSwap2Div@@YAXQEAURecord@@HHHH@Z)
+2_Shell_Sort.obj : error LNK2019: unresolved external symbol outtextxy referenced in function "void __cdecl createArrayDeleteAt2Pos(struct Record * const,int,int,int,int,int,char * const,int)" (?createArrayDeleteAt2Pos@@YAXQEAURecord@@HHHHHQEADH@Z)
+2_Shell_Sort.obj : error LNK2019: unresolved external symbol textheight referenced in function "void __cdecl createArrayDeleteAt2Pos(struct Record * const,int,int,int,int,int,char * const,int)" (?createArrayDeleteAt2Pos@@YAXQEAURecord@@HHHHHQEADH@Z)
+2_Shell_Sort.obj : error LNK2019: unresolved external symbol textwidth referenced in function "void __cdecl createArrayDeleteAt2Pos(struct Record * const,int,int,int,int,int,char * const,int)" (?createArrayDeleteAt2Pos@@YAXQEAURecord@@HHHHHQEADH@Z)
+graphics.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\Dell\Desktop\Major_2_1\CTDL_GT\Graphics_CPP\Sort_Graphics\2_Shell_Sort\x64\Debug\2_Shell_Sort.exe : fatal error LNK1120: 10 unresolved externals
