@@ -1,0 +1,9 @@
+﻿  7_Bubble_Sort.cpp
+graphics.lib(dibutil.obj) : warning LNK4099: PDB 'bgi.pdb' was not found with 'graphics.lib(dibutil.obj)' or at 'C:\Users\Dell\Desktop\Major_2_1\CTDL_GT\Graphics_CPP\Sort_Graphics\7_Bubble_Sort\Debug\bgi.pdb'; linking object as if no debug info
+graphics.lib(drawing.obj) : warning LNK4099: PDB 'bgi.pdb' was not found with 'graphics.lib(drawing.obj)' or at 'C:\Users\Dell\Desktop\Major_2_1\CTDL_GT\Graphics_CPP\Sort_Graphics\7_Bubble_Sort\Debug\bgi.pdb'; linking object as if no debug info
+graphics.lib(file.obj) : warning LNK4099: PDB 'bgi.pdb' was not found with 'graphics.lib(file.obj)' or at 'C:\Users\Dell\Desktop\Major_2_1\CTDL_GT\Graphics_CPP\Sort_Graphics\7_Bubble_Sort\Debug\bgi.pdb'; linking object as if no debug info
+graphics.lib(misc.obj) : warning LNK4099: PDB 'bgi.pdb' was not found with 'graphics.lib(misc.obj)' or at 'C:\Users\Dell\Desktop\Major_2_1\CTDL_GT\Graphics_CPP\Sort_Graphics\7_Bubble_Sort\Debug\bgi.pdb'; linking object as if no debug info
+graphics.lib(text.obj) : warning LNK4099: PDB '' was not found with 'graphics.lib(text.obj)' or at ''; linking object as if no debug info
+graphics.lib(winbgi.obj) : warning LNK4099: PDB 'bgi.pdb' was not found with 'graphics.lib(winbgi.obj)' or at 'C:\Users\Dell\Desktop\Major_2_1\CTDL_GT\Graphics_CPP\Sort_Graphics\7_Bubble_Sort\Debug\bgi.pdb'; linking object as if no debug info
+graphics.lib(winthread.obj) : warning LNK4099: PDB 'bgi.pdb' was not found with 'graphics.lib(winthread.obj)' or at 'C:\Users\Dell\Desktop\Major_2_1\CTDL_GT\Graphics_CPP\Sort_Graphics\7_Bubble_Sort\Debug\bgi.pdb'; linking object as if no debug info
+  7_Bubble_Sort.vcxproj -> C:\Users\Dell\Desktop\Major_2_1\CTDL_GT\Graphics_CPP\Sort_Graphics\7_Bubble_Sort\Debug\7_Bubble_Sort.exe
