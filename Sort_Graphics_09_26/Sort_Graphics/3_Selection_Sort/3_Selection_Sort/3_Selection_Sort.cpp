@@ -50,7 +50,6 @@ int main() {
     initwindow(WIDTHSCREEN, HEIGHTSCREEN);
     outtextxy(10, 10, algorithmname);
     createDivRecordKey(rc, mypos.posx, mypos.posy, mypos.width, arrname);
-
     selectionSort(rc, n);
     Sleep(500);
     outtextxy(300, 300, (char*)"Hoan thanh");
@@ -251,7 +250,7 @@ void selectionSort(Record rc[], int n)
                 swapbuffers();
                 max_idx = j;
             }
-            else if (rc[j].Key <= rc[max_idx].Key) {
+            else {
                 Sleep(1000);
                 resetScreen(rc);
                 createRedDiv(mypos.posx + (mypos.width + 5) * i, mypos.posy, mypos.width, rc[i].Key);

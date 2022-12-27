@@ -3,6 +3,7 @@
 #include<stdlib.h>
 #include<math.h>
 #include<string.h>
+#include<fstream>
 #define Length 20
 #pragma comment(lib,"graphics.lib")
 using namespace std;
@@ -81,7 +82,7 @@ struct Position {
     int stkwidth = 150;
 } mypos;
 
-void enterRecordKey(Record rc[], int n);
+void enterRecordKey(Record rc[], int& n);
 void createDivRecordKey(Record rc[], int x, int y, int width, char content[]);
 void createArrayDeleteAt2Pos(Record rc[], int x, int y, int width, int index1, int index2, char content[]);
 void text_align_center(int x, int y, int width, char txt[]);
@@ -97,15 +98,8 @@ void resetScreen(Record rc[], int l, int r, int k, int i, int j);
 int main() {
 
 
-   /* cout << "Nhap vao so luong phan tu: "; cin >> n;
-    cout << "Nhap vao cac Key cho Record: ";
-    enterRecordKey(rc, n);*/
-    n = 16;
-    rc[0].Key = 503; rc[1].Key = 87; rc[2].Key = 512; rc[3].Key = 61;
-    rc[4].Key = 908; rc[5].Key = 170; rc[6].Key = 897; rc[7].Key = 275;
-    rc[8].Key = 653; rc[9].Key = 426; rc[10].Key = 154; rc[11].Key = 509;
-    rc[12].Key = 612; rc[13].Key = 677; rc[14].Key = 765;rc[15].Key = 703;
 
+    enterRecordKey(rc, n);
     initwindow(WIDTHSCREEN, HEIGHTSCREEN);
     outtextxy(10, 10, algothrimname);
     createDivRecordKey(rc, mypos.posx, mypos.posy, mypos.width, arrname);
@@ -116,16 +110,20 @@ int main() {
     createDivRecordKey(rc, mypos.posx, mypos.posy, mypos.width, arrname);
     Sleep(600);
     createStack(s, 60);
-    outtextxy(350, 350, (char*)"Hoan thanh");
+    outtextxy(350, 350, (char*)"Completed");
     swapbuffers();
 
     getch();
     closegraph();
     return 0;
 }
-void enterRecordKey(Record rc[], int n) {
+void enterRecordKey(Record rc[], int& n) {
+    ifstream fi;
+    fi.open("input.txt");
+    fi >> n;
+    cout << n;
     for (int i = 0;i < n;i++) {
-        cin >> rc[i].Key;
+        fi >> rc[i].Key;
     }
 }
 void createIndexRecord(Record rc[], int n) {
@@ -281,7 +279,6 @@ void nodeGoUp(Node* node, int xs, int ys, int xe, int ye, int width, int stackhe
         delay(1);
     }
 }
-
 void nodeGoDown(Node* node, int xs, int ys, int xe, int ye, int width, int stackheight, int l, int r, int k, int i, int j) {
     int ixdown = 0;
     int iydown = 0;
@@ -469,18 +466,18 @@ void common2(Record rc[], int l, int r, int K, int i, int j) {
     resetScreen(rc, l, r, K, i, j);
     swapbuffers();
 }
-void common3(Record rc[], int l, int r, int K, int i, int j, int stackheight,char isfalse[],char smaller[],char bigger[], bool isCheck) {
+void common3(Record rc[], int l, int r, int K, int i, int j, int stackheight, char isfalse[], char smaller[], char bigger[], bool isCheck) {
     Sleep(600);
     cleardevice();
-    isCheck?compareRecord(i, K, isfalse, smaller): compareRecord(j, K, isfalse, bigger);
+    isCheck ? compareRecord(i, K, isfalse, smaller) : compareRecord(j, K, isfalse, bigger);
     resetScreen(rc, l, r, K, i, j);
     createStack(s, stackheight);
     swapbuffers();
 }
-void common4(Record rc[], int l, int r, int K, int &i, int &j, int stackheight, char istrue[], char smaller[], char bigger[], bool isCheck) {
+void common4(Record rc[], int l, int r, int K, int& i, int& j, int stackheight, char istrue[], char smaller[], char bigger[], bool isCheck) {
     Sleep(600);
     cleardevice();
-    isCheck?(compareRecord(i, K, istrue, smaller), i++):( compareRecord(j, K, istrue, bigger), j--);
+    isCheck ? (compareRecord(i, K, istrue, smaller), i++) : (compareRecord(j, K, istrue, bigger), j--);
     resetScreen(rc, l, r, K, i, j);
     createStack(s, stackheight);
     swapbuffers();
@@ -509,19 +506,19 @@ void quickSort(Record rc[], int n)
             i += 1;
             Sleep(600);
             common1(rc, l, r, K, i, j, stackheight);
-            while (rc[i].Key < K) {
+            while (rc[i].Key < K &&i<n) {
                 common4(rc, l, r, K, i, j, stackheight, istrue, smaller, bigger, true);
             }
-            common3(rc, l, r, K, i, j, stackheight, isfalse, smaller,bigger, true);
+            common3(rc, l, r, K, i, j, stackheight, isfalse, smaller, bigger, true);
             j -= 1;
             Sleep(600);
             createStack(s, stackheight);
             resetScreen(rc, l, r, K, i, j);
             swapbuffers();
-            while (rc[j].Key > K) {
+            while (rc[j].Key > K&&j>=0) {
                 common4(rc, l, r, K, i, j, stackheight, istrue, smaller, bigger, false);
             }
-            common3(rc, l, r, K, i, j, stackheight, isfalse, smaller,bigger, false);
+            common3(rc, l, r, K, i, j, stackheight, isfalse, smaller, bigger, false);
             if (j <= i) {
                 //q5    
                 if (l != j) {

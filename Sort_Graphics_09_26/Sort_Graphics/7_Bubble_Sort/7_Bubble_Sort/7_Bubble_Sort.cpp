@@ -2,6 +2,7 @@
 #include<iostream>
 #include<stdlib.h>
 #include<math.h>
+#include<fstream>
 #define Length 20
 #pragma comment(lib,"graphics.lib")
 using namespace std;
@@ -22,7 +23,7 @@ struct Position {
 } mypos;
 
 //
-void enterRecordKey(Record rc[], int n);
+void enterRecordKey(Record rc[], int &n);
 void myswap(Record& rc1, Record& rc2);
 
 //Cac ham tao khoi
@@ -47,14 +48,7 @@ void bubbleSort(Record rc[], int n);
 
 int main() {
     Record rc[Length];
-
-    /*cout << "Nhap so luong phan tu: "; cin >> n;
-    enterRecordKey(rc, n);*/
-    n = 10;
-    rc[0].Key = 8; rc[1].Key = 6; rc[2].Key = 9; rc[3].Key = 35;
-    rc[4].Key = 1; rc[5].Key = 2; rc[6].Key = 5; rc[7].Key = 4;
-    rc[8].Key = 6; rc[9].Key = 8;
-
+    enterRecordKey(rc, n);
     DWORD WIDTHSCREEN = GetSystemMetrics(SM_CXSCREEN);
     DWORD HEIGHTSCREEN = GetSystemMetrics(SM_CYSCREEN);
     initwindow(WIDTHSCREEN, HEIGHTSCREEN);
@@ -72,10 +66,12 @@ int main() {
     closegraph();
     return 0;
 }
-void enterRecordKey(Record rc[], int n) {
-    cout << "Nhap vao cac key: ";
+void enterRecordKey(Record rc[], int &n) {
+    ifstream fi;
+    fi.open("input.txt");
+    fi >> n;
     for (int i = 0;i < n;i++) {
-        cin >> rc[i].Key;
+        fi >> rc[i].Key;
     }
 }
 void createIndexRecord(Record rc[], int n) {
@@ -205,7 +201,7 @@ void animateSwap2Div(Record rc[], int start, int pivotIndex, int s) {
         runDiv(rc, mypos.posx + (mypos.width + 5) * pivotIndex, mypos.posy, mypos.width, ixdown, iydown, rc[pivotIndex].Key);
         iydown += 1;
         swapbuffers();
-        delay(0);
+        delay(1);
     }
 
     //chay ngang
@@ -225,7 +221,7 @@ void animateSwap2Div(Record rc[], int start, int pivotIndex, int s) {
         ixrightd1 += 1;
         ixleftd2 -= 1;
         swapbuffers();
-        delay(0);
+        delay(1);
     }
 
     //chay len
@@ -242,7 +238,7 @@ void animateSwap2Div(Record rc[], int start, int pivotIndex, int s) {
         runDiv(rc, mypos.posx + (mypos.width + 5) * start, mypos.posy + mypos.width + 5, mypos.width, ixup, iyup, rc[pivotIndex].Key);
         iyup -= 1;
         swapbuffers();
-        delay(0);
+        delay(1);
     }
 }
 

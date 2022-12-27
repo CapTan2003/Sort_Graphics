@@ -44,6 +44,7 @@ void shellSort(Record rc[], int n);
 
 int main() {
     Record rc[Length];
+
     n = 10;
     rc[0].Key = 8; rc[1].Key = 6; rc[2].Key = 9; rc[3].Key = 35;
     rc[4].Key = 1; rc[5].Key = 2; rc[6].Key = 5; rc[7].Key = 4;
@@ -59,7 +60,6 @@ int main() {
     shellSort(rc, n);
     outtextxy(300, 300, (char*)"Hoan thanh");
     swapbuffers();
-
     getch();
     closegraph();
     return 0;
